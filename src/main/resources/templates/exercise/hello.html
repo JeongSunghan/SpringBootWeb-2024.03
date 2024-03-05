@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="margin: 50px;">
+    <h1>Hello World</h1>
+    <hr>
+    <img src="/sb/img/eiffel.jpg" width="30%">
+    <img src="/sb/img/보드.jpg" width="30%">
+    <!-- @{} =? /sb루트 생략, th(타임리프)붙이기-->
+    <img th:src="@{/img/eiffel.jpg}" width="30%">
+    
+</body>
+</html>
