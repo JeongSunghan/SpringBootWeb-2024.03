@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th, td { padding: 3px; }
+    </style>
+</head>
+<body style="margin: 50px;">
+    <h1>사용자 목록</h1>
+    <hr>
+    <table border="1">
+        <tr>
+            <th>No.</th>
+            <th>uid</th>
+            <th>uname</th>
+            <th>email</th>
+            <th>regDate</th>
+            <th>pwd</th>
+        </tr>
+        <tr th:each="user: ${userList}">
+            <td th:text="${userStat.count}">1</td>
+            <td th:text="${user.uid}">james</td>
+            <td th:text="${user.uname}">제임스</td>
+            <td th:text="${user.email}">james@gmail.com</td>
+            <td th:text="${user.regDate}">2024-03-06</td>
+            <td th:text="${user.pwd}">dsfahjkjhfdshkjf</td>
+        </tr>
+    </table>
+</body>
+</html>
