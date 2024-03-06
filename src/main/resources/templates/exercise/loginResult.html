@@ -6,11 +6,10 @@
     <title>Document</title>
 </head>
 <body style="margin: 50px;">
-    <h1>Params</h1>
+    <h1>Login Result</h1>
     <hr>
-    <!-- 텍스트 형식으로 적고싶을 때 -->
-    <h2><span th:text="${name}">마리아</span> 님 환영합니다.</h2>
-    <!-- 타임리프에서 그 사이에 데이터를 넣고싶을때 th:text = $language를 사용 -->
+    <h2><span th:text="${msg}">메세지</span></h2>
+    <h2><span th:text="${session.sessUname}">사용자 이름</span>님 환영합니다.</h2>
     
 </body>
 </html>
