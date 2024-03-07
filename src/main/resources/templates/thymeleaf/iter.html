@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th, td{padding: 3px;}
+        .even   {background-color: bisque; }
+        .odd {background-color: aquamarine; }
+    </style>
+</head>
+<body style="margin: 50px;">
+    <h1>반복문</h1>
+    <hr>
+    <table border="1">
+        <tr>
+            <th>ID</th><th>이름</th><th>나이</th>
+        </tr>
+        <!-- th:each => 반복문 -->
+        <tr th:each = "member: ${memberList}">
+            <td th:text="${member.mid}"></td>
+            <td th:text="${member.name}"></td>
+            <td th:text="${member.age}"></td>
+        </tr>
+    </table>
+<!-- ============================================================== -->
+    <ul th:each ="member:${memberList}">
+        <li th:class="${member.mid % 2 == 0 ? 'even' : 'odd'}">[[${member}]]</li>
+    </ul>
+<!-- ============================================================== -->
+    <table border="1">
+        <tr>
+            <th>ID</th><th>이름</th><th>나이</th>
+            <th>Count</th><th>index</th><th>size</th><th>even?</th>          <!-- 상태 유지 변수-->
+            <th>odd?</th><th>first?</th><th>last?</th><th>current</th>         <!-- 상태 유지 변수-->
+        </tr>
+        <tr th:each = "member, memberStat: ${memberList}">      
+            <!-- stat 생략 가능 -->
+            <td th:text="${member.mid}"></td>
+            <td th:text="${member.name}"></td>
+            <td th:text="${member.age}"></td>
+            <td th:text="${memberStat.count}"></td>
+            <td th:text="${memberStat.index}"></td>
+            <td th:text="${memberStat.size}"></td>
+            <td th:text="${memberStat.even}"></td>
+            <td th:text="${memberStat.odd}"></td>
+            <td th:text="${memberStat.first}"></td>
+            <td th:text="${memberStat.last}"></td>
+            <td th:text="${memberStat.current}"></td>
+        </tr>
+    </table>
+</body>
+</html>

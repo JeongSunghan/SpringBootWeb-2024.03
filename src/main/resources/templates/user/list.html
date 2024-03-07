@@ -15,10 +15,10 @@
         <tr>
             <th>No.</th>
             <th>uid</th>
-            <th>uname</th>
-            <th>email</th>
-            <th>regDate</th>
-            <th>pwd</th>
+            <th>이름</th>
+            <th>이메일</th>
+            <th>등록일</th>
+            <th>액션</th>
         </tr>
         <tr th:each="user: ${userList}">
             <td th:text="${userStat.count}">1</td>
@@ -26,7 +26,10 @@
             <td th:text="${user.uname}">제임스</td>
             <td th:text="${user.email}">james@gmail.com</td>
             <td th:text="${user.regDate}">2024-03-06</td>
-            <td th:text="${user.pwd}">dsfahjkjhfdshkjf</td>
+            <td>
+                <a th:href="@{/user/update/{x}(x=${user.uid})}">수정</a>
+                <a th:href="@{/user/delete/{x}(x=${user.uid})}">삭제</a>
+            </td>
         </tr>
     </table>
 </body>

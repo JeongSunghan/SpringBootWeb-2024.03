@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="margin: 50px;">
+    <h1>표현언어(Expression Language - EL)와 객체</h1>
+    <hr>
+    <ul> Object
+        <li>[[${member.mid}]]</li>
+        <li>[[${member['name']}]]</li>
+        <li>[[${member.getAge()}]]</li>
+    </ul>
+    <ul> List
+        <li>[[${memberList[1].mid}]]</li>
+        <li>[[${memberList[1]['name']}]]</li>
+        <li>[[${memberList[1].getAge()}]]</li>
+    </ul>
+    <ul> 세션 편의객체
+        <li>[[${session.sessUname}]]</li>
+        <li>[[${session.sessAge}]]</li>
+    </ul>
+    <ul> LocalDateTime - temporals
+        <li>[[${now}]]</li>
+        <li>[[${#temporals.format(now, 'yyyy-MM-dd HH:mm:ss')}]]</li>
+    </ul>
+    <ul> LocalDateTime - strings로 변환
+        <li>[[${now}]]</li>
+        <li>[[${#strings.substring(#strings.replace(now, 'T', ' '), 0, 19)}]]</li>
+        
+    </ul>
+
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        th, td { padding: 3px;}
+    </style>
+</head>
+<body style="margin: 50px;">
+    <h1>조건식</h1>
+    <hr>
+    <h3>Selection</h3>
+    <div th:if = "${num1 % 2 == 0}">num1은 짝수</div>
+    <div th:if = "${num1 % 2 == 1}">num1은 홀수</div>
+    <!-- unless = 반대의 경우 -->
+    <div th:unless = "${num2 % 2 == 0}">num2는 홀수</div>
+    <div th:unless = "${num2 % 2 == 1}">num2는 짝수</div>
+    <!-- 결과창에 하나만 나오는 이유 : 조건이 참인 경우에만 찍힌다. -->
+    <hr>
+    <h3>Switch</h3>
+    <table border="1">
+        <tr>
+            <th>아이디</th><th>이름</th><th>나이</th><th>스위치 결과</th>
+        </tr>
+        <tr th:each="member: ${memberList}">
+            <td>[[${member.mid}]]</td>
+            <td>[[${member.name}]]</td>
+            <td>[[${member.age}]]</td>
+            <td th:switch = "${member.mid} % 3">
+                <span th:case="0">나머지 0</span>
+                <span th:case="1">나머지 1</span>
+                <span th:case="2">나머지 2</span>       <!-- default인 경우-->
+            </td>
+        </tr>
+    </table>
+    <h3>Selection</h3>
+    <div th:text = "*{num1 % 2 == 0}">num1은 짝수</div>
+    <div th:text = "*{num1 % 2 == 1}">num1은 홀수</div>
+    <div th:text = "*{num2 % 2 == 0}">num2는 홀수</div>
+    <div th:text = "*{num2 % 2 == 1}">num2는 짝수</div>
+    </body> 
+</html>

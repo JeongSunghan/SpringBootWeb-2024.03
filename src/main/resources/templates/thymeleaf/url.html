@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="margin: 50px;">
+    <h1>URL 링크</h1>
+    <hr>
+    <ul> 사용자 관리
+        <!-- 방법1 -->
+        <li><a href="/sb/user/login" target="_blank">로그인</a></li>
+
+        <!-- 방법2 -->
+        <li><a th:href="@{/user/login}">로그인</a></li>            <!-- context root(/sb) 생략 -->
+        <li><a th:href="@{/user/logout}" >로그아웃</a></li>
+        <li></li>
+
+        <!-- localhost8090:/sb/user/list/1 -->
+        <li><a th:href="@{/user/list/{x}(x=${page})}" target="_blank">리스트</a></li>
+
+        <!-- localhost8090:/sb/user/update/james -->
+        <li><a th:href="@{/user/update/{x}(x=${uid})}" target="_blank">사용자 수정</a></li>
+
+        <!-- localhost:8090/sb/tl/params?uid=james&page=1 -->
+        <li><a th:href="@{/tl/params(uid=${uid}, page=${page})}"  target="_blank">파라메터 확인</a></li>
+        </ul>
+        <ul> 리터럴
+            <li>'hello' + ' world!' = <span th:text="'hello' + ' world!'"></span></li>
+            <li>'hello world!' = <span th:text="'hello world!'"></span></li>
+            <li>'hello ' + ${data} = <span th:text="'hello ' + ${data}"></span></li>
+            <li>리터럴 대체 |hello ${data}| = <span th:text="|hello ${data}|"></span></li>
+        </ul>
+    </body>
+</html>
