@@ -10,6 +10,14 @@
 </head>
 <body style="margin: 50px;">
     <h1>사용자 목록</h1>
+        <span style="font-size: 16px; margin-left: 100px;">
+            <span th:if="${session.sessUid}">[[${session.sessUname}]]님 환영합니다. &nbsp;&nbsp;&nbsp;
+                <a th:href = "@{/user/logout}">로그아웃</a>
+            </span>
+            <span th:unless="${session.sessUid}">
+                <a th:href="@{/user/login}">로그인</a>
+            </span>
+        </span>
     <hr>
     <table border="1">
         <tr>
